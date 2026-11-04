@@ -1,0 +1,625 @@
+{
+    "name": "Entrega 8 - Distribución",
+    "flow": [
+        {
+            "id": 1,
+            "module": "airtable:TriggerWatchRecords",
+            "version": 3,
+            "parameters": {
+                "base": "applMITHCnOQM9YdF",
+                "table": "tbl5DvfD5RE0S8ee0",
+                "config": {
+                    "labelField": "Idea Semilla",
+                    "triggerField": "Última modificación"
+                },
+                "formula": "",
+                "maxRecords": 1,
+                "__IMTCONN__": 11826283,
+                "useColumnId": false
+            },
+            "mapper": {},
+            "metadata": {
+                "designer": {
+                    "x": -327,
+                    "y": -39
+                },
+                "setupValidation": {
+                    "result": {
+                        "valid": true,
+                        "fields": []
+                    },
+                    "version": 1,
+                    "configuration": "9a95ffefd826a94c"
+                },
+                "restore": {
+                    "parameters": {
+                        "base": {
+                            "label": "Entrega 8 - Pipeline Contenido"
+                        },
+                        "table": {
+                            "label": "Piezas"
+                        },
+                        "config": {
+                            "nested": {
+                                "labelField": {
+                                    "label": "Idea Semilla"
+                                },
+                                "triggerField": {
+                                    "label": "Última modificación"
+                                }
+                            }
+                        },
+                        "__IMTCONN__": {
+                            "data": {
+                                "scoped": "true",
+                                "connection": "airtable2"
+                            },
+                            "label": "Airtable Clínica"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "__IMTCONN__",
+                        "type": "account:airtable3,airtable2",
+                        "label": "Connection",
+                        "required": true
+                    },
+                    {
+                        "name": "base",
+                        "type": "select",
+                        "label": "Base",
+                        "required": true
+                    },
+                    {
+                        "name": "useColumnId",
+                        "type": "boolean",
+                        "label": "Use column ID",
+                        "required": true
+                    },
+                    {
+                        "name": "table",
+                        "type": "select",
+                        "label": "Table",
+                        "required": true
+                    },
+                    {
+                        "name": "config",
+                        "spec": [
+                            {
+                                "name": "triggerField",
+                                "type": "select",
+                                "label": "Trigger field",
+                                "required": true
+                            },
+                            {
+                                "name": "triggerField",
+                                "type": "hidden"
+                            },
+                            {
+                                "name": "labelField",
+                                "type": "select",
+                                "label": "Label field",
+                                "required": true
+                            }
+                        ],
+                        "type": "collection",
+                        "label": "Trigger configuration"
+                    },
+                    {
+                        "name": "maxRecords",
+                        "type": "integer",
+                        "label": "Limit",
+                        "required": true
+                    },
+                    {
+                        "name": "view",
+                        "type": "select",
+                        "label": "View"
+                    },
+                    {
+                        "name": "formula",
+                        "type": "text",
+                        "label": "Formula"
+                    }
+                ],
+                "interface": [
+                    {
+                        "name": "id",
+                        "type": "text",
+                        "label": "ID"
+                    },
+                    {
+                        "name": "createdTime",
+                        "type": "date",
+                        "label": "Created time"
+                    },
+                    {
+                        "name": "Idea Semilla",
+                        "type": "text",
+                        "label": "Idea Semilla"
+                    },
+                    {
+                        "name": "Estado",
+                        "type": "text",
+                        "label": "Estado"
+                    },
+                    {
+                        "name": "Tono",
+                        "type": "text",
+                        "label": "Tono"
+                    },
+                    {
+                        "name": "Borrador generado",
+                        "type": "text",
+                        "label": "Borrador generado",
+                        "multiline": true
+                    },
+                    {
+                        "name": "Aprobado",
+                        "type": "boolean",
+                        "label": "Aprobado"
+                    },
+                    {
+                        "name": "Última ejecución",
+                        "time": true,
+                        "type": "date",
+                        "label": "Última ejecución"
+                    },
+                    {
+                        "name": "Última modificación",
+                        "type": "date",
+                        "label": "Última modificación"
+                    },
+                    {
+                        "name": "Registro de errores",
+                        "spec": {
+                            "type": "text",
+                            "label": "Record ID"
+                        },
+                        "type": "array",
+                        "label": "Registro de errores"
+                    }
+                ]
+            }
+        },
+        {
+            "id": 7,
+            "module": "google-email:sendAnEmail",
+            "version": 4,
+            "parameters": {
+                "__IMTCONN__": 11468894
+            },
+            "filter": {
+                "name": "Solo aprobados",
+                "conditions": [
+                    [
+                        {
+                            "a": "{{1.Estado}}",
+                            "b": "Publicado",
+                            "o": "text:notequal"
+                        },
+                        {
+                            "a": "{{1.Aprobado}}",
+                            "b": "true",
+                            "o": "boolean:equal"
+                        }
+                    ]
+                ]
+            },
+            "mapper": {
+                "to": [
+                    "{{1.`Email destinatario`}}"
+                ],
+                "content": "{{1.`Borrador generado`}}",
+                "subject": "Contenido aprobado: {{1.`Idea Semilla`}}",
+                "bodyType": "rawHtml"
+            },
+            "metadata": {
+                "designer": {
+                    "x": -27,
+                    "y": -39
+                },
+                "setupValidation": {
+                    "result": {
+                        "valid": true,
+                        "fields": []
+                    },
+                    "version": 1,
+                    "configuration": "f3dc36a880688da2"
+                },
+                "restore": {
+                    "expect": {
+                        "cc": {
+                            "mode": "chose"
+                        },
+                        "to": {
+                            "mode": "chose",
+                            "items": [
+                                null
+                            ]
+                        },
+                        "bcc": {
+                            "mode": "chose"
+                        },
+                        "from": {
+                            "mode": "chose",
+                            "label": "Empty"
+                        },
+                        "bodyType": {
+                            "label": "Raw HTML"
+                        },
+                        "attachments": {
+                            "mode": "chose"
+                        },
+                        "emailHeaders": {
+                            "mode": "chose"
+                        }
+                    },
+                    "parameters": {
+                        "__IMTCONN__": {
+                            "data": {
+                                "scoped": "true",
+                                "connection": "google-email"
+                            },
+                            "label": "juan's Gmail connection (juansepu9975@gmail.com)"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "__IMTCONN__",
+                        "type": "account:google-email",
+                        "label": "Connection",
+                        "required": true
+                    }
+                ],
+                "expect": [
+                    {
+                        "name": "to",
+                        "spec": {
+                            "name": "value",
+                            "type": "email",
+                            "label": "Recipient email address",
+                            "required": true,
+                            "validate": true
+                        },
+                        "type": "array",
+                        "label": "To",
+                        "required": true
+                    },
+                    {
+                        "name": "subject",
+                        "type": "text",
+                        "label": "Subject"
+                    },
+                    {
+                        "name": "bodyType",
+                        "type": "select",
+                        "label": "Body type",
+                        "required": true,
+                        "validate": {
+                            "enum": [
+                                "rawHtml",
+                                "collection"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "attachments",
+                        "spec": {
+                            "name": "value",
+                            "spec": [
+                                {
+                                    "name": "filename",
+                                    "type": "filename",
+                                    "label": "File name",
+                                    "required": true,
+                                    "semantic": "file:name"
+                                },
+                                {
+                                    "name": "data",
+                                    "type": "buffer",
+                                    "label": "Data",
+                                    "required": true,
+                                    "semantic": "file:data"
+                                }
+                            ],
+                            "type": "collection",
+                            "label": "Attachment"
+                        },
+                        "type": "array",
+                        "label": "Attachments"
+                    },
+                    {
+                        "name": "from",
+                        "type": "select",
+                        "label": "From"
+                    },
+                    {
+                        "name": "cc",
+                        "spec": {
+                            "name": "value",
+                            "type": "email",
+                            "label": "Recipient email address"
+                        },
+                        "type": "array",
+                        "label": "CC recipients"
+                    },
+                    {
+                        "name": "bcc",
+                        "spec": {
+                            "name": "value",
+                            "type": "email",
+                            "label": "Recipient email address"
+                        },
+                        "type": "array",
+                        "label": "BCC recipients"
+                    },
+                    {
+                        "name": "emailHeaders",
+                        "spec": {
+                            "name": "value",
+                            "spec": [
+                                {
+                                    "name": "key",
+                                    "type": "text",
+                                    "label": "Key",
+                                    "required": true
+                                },
+                                {
+                                    "name": "value",
+                                    "type": "text",
+                                    "label": "Value"
+                                }
+                            ],
+                            "type": "collection",
+                            "label": "Email header"
+                        },
+                        "type": "array",
+                        "label": "Additional email headers"
+                    },
+                    {
+                        "name": "content",
+                        "type": "text",
+                        "label": "Content"
+                    }
+                ]
+            }
+        },
+        {
+            "id": 8,
+            "module": "airtable:ActionUpdateRecords",
+            "version": 3,
+            "parameters": {
+                "__IMTCONN__": 11826283
+            },
+            "mapper": {
+                "id": "{{1.id}}",
+                "base": "applMITHCnOQM9YdF",
+                "table": "tbl5DvfD5RE0S8ee0",
+                "record": {
+                    "fldnUl9Tnu9tu4MOK": "{{1.Tono}}",
+                    "fldzpgrVBnTcQPcFE": "Publicado"
+                },
+                "typecast": false,
+                "useColumnId": false
+            },
+            "metadata": {
+                "designer": {
+                    "x": 273,
+                    "y": -39
+                },
+                "setupValidation": {
+                    "result": {
+                        "valid": true,
+                        "fields": []
+                    },
+                    "version": 1,
+                    "configuration": "a8aa79c6acaf4089"
+                },
+                "restore": {
+                    "expect": {
+                        "base": {
+                            "label": "Entrega 8 - Pipeline Contenido"
+                        },
+                        "table": {
+                            "label": "Piezas"
+                        },
+                        "record": {
+                            "nested": {
+                                "fldPnYMz7NIWW33ec": {
+                                    "mode": "chose"
+                                },
+                                "fldXkhlRereQguq2U": {
+                                    "mode": "chose"
+                                },
+                                "fldnUl9Tnu9tu4MOK": {
+                                    "mode": "edit"
+                                },
+                                "fldzpgrVBnTcQPcFE": {
+                                    "mode": "edit"
+                                }
+                            }
+                        },
+                        "typecast": {
+                            "mode": "chose"
+                        },
+                        "useColumnId": {
+                            "mode": "chose"
+                        }
+                    },
+                    "parameters": {
+                        "__IMTCONN__": {
+                            "data": {
+                                "scoped": "true",
+                                "connection": "airtable2"
+                            },
+                            "label": "Airtable Clínica"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "__IMTCONN__",
+                        "type": "account:airtable3,airtable2",
+                        "label": "Connection",
+                        "required": true
+                    }
+                ],
+                "expect": [
+                    {
+                        "name": "base",
+                        "type": "select",
+                        "label": "Base",
+                        "required": true
+                    },
+                    {
+                        "name": "typecast",
+                        "type": "boolean",
+                        "label": "Smart links",
+                        "required": true
+                    },
+                    {
+                        "name": "useColumnId",
+                        "type": "boolean",
+                        "label": "Use column ID",
+                        "required": true
+                    },
+                    {
+                        "name": "table",
+                        "type": "select",
+                        "label": "Table",
+                        "required": true
+                    },
+                    {
+                        "name": "id",
+                        "type": "text",
+                        "label": "Record ID",
+                        "required": true
+                    },
+                    {
+                        "name": "record",
+                        "spec": [
+                            {
+                                "name": "fldXSMu5uQJhrOhYR",
+                                "type": "text",
+                                "label": "Idea Semilla"
+                            },
+                            {
+                                "mode": "edit",
+                                "name": "fldzpgrVBnTcQPcFE",
+                                "type": "select",
+                                "label": "Estado"
+                            },
+                            {
+                                "mode": "edit",
+                                "name": "fldnUl9Tnu9tu4MOK",
+                                "type": "select",
+                                "label": "Tono"
+                            },
+                            {
+                                "name": "fldIbDKZtXTPVSjNF",
+                                "type": "text",
+                                "label": "Borrador generado"
+                            },
+                            {
+                                "name": "fldXkhlRereQguq2U",
+                                "type": "boolean",
+                                "label": "Aprobado"
+                            },
+                            {
+                                "name": "fldXLDWSotjePK8rG",
+                                "time": true,
+                                "type": "date",
+                                "label": "Última ejecución"
+                            },
+                            {
+                                "name": "fldPnYMz7NIWW33ec",
+                                "spec": {
+                                    "name": "value",
+                                    "type": "text",
+                                    "label": "Record ID"
+                                },
+                                "type": "array",
+                                "label": "Registro de errores"
+                            }
+                        ],
+                        "type": "collection",
+                        "label": "Record"
+                    }
+                ],
+                "interface": [
+                    {
+                        "name": "id",
+                        "type": "text",
+                        "label": "ID"
+                    },
+                    {
+                        "name": "createdTime",
+                        "type": "date",
+                        "label": "Created time"
+                    },
+                    {
+                        "name": "Idea Semilla",
+                        "type": "text",
+                        "label": "Idea Semilla"
+                    },
+                    {
+                        "name": "Estado",
+                        "type": "text",
+                        "label": "Estado"
+                    },
+                    {
+                        "name": "Tono",
+                        "type": "text",
+                        "label": "Tono"
+                    },
+                    {
+                        "name": "Borrador generado",
+                        "type": "text",
+                        "label": "Borrador generado",
+                        "multiline": true
+                    },
+                    {
+                        "name": "Aprobado",
+                        "type": "boolean",
+                        "label": "Aprobado"
+                    },
+                    {
+                        "name": "Última ejecución",
+                        "time": true,
+                        "type": "date",
+                        "label": "Última ejecución"
+                    },
+                    {
+                        "name": "Última modificación",
+                        "type": "date",
+                        "label": "Última modificación"
+                    }
+                ]
+            }
+        }
+    ],
+    "metadata": {
+        "instant": false,
+        "version": 1,
+        "scenario": {
+            "roundtrips": 1,
+            "maxErrors": 3,
+            "autoCommit": true,
+            "autoCommitTriggerLast": true,
+            "sequential": false,
+            "slots": null,
+            "confidential": false,
+            "dataloss": false,
+            "dlq": false,
+            "freshVariables": false
+        },
+        "designer": {
+            "orphans": []
+        },
+        "zone": "us2.make.com",
+        "notes": []
+    }
+}
