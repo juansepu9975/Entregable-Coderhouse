@@ -37,4 +37,4 @@ El punto de aprobación humana (HITL) es el checkbox **Aprobado** en Airtable: s
 
 ## Pruebas realizadas
 
-Se ejecutaron cinco corridas de estrés: una pieza completa, una pieza sin tono sin validación (evidencia del riesgo), dos piezas incompletas bloqueadas por la validación, y una pieza completa final. Los detalles y las capturas están en `capturas/` y `datos/`.
+Se ejecutaron cinco corridas de estrés: una pieza completa, una pieza sin tono sin validación (evidencia del riesgo), Se ejecutaron pruebas con datos completos, con datos incompletos y con un fallo de OpenAI. La evidencia está en capturas/ y datos/.
