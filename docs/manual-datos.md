@@ -109,4 +109,4 @@ El texto se toma de `choices[0].message.content` y se guarda en **Borrador gener
 
 | Error | Detalle | Módulo | Pieza |
 |---|---|---|---|
-| Datos incompletos | Falta Idea Semilla o Tono. No se llamó a OpenAI | Validación datos (28) | Prueba validación: sin tono |
+| Datos incompletos | Falta Idea Semilla o Tono. No se llamó a OpenAI | Validación datos (28) | Recordatorio: confirmá tu turno con 24 h de anticipación |
