@@ -20,7 +20,7 @@ Este documento describe cómo el sistema protege los datos, cómo responde a fal
 
 | Situación | Respuesta del sistema |
 |---|---|
-| Falta Idea Semilla, Tono o Email revisor | El router envía la pieza a la ruta de fallback. Se crea un registro "Datos incompletos" en Registro de errores y no se llama a OpenAI. |
+| Falta Idea Semilla o Tono | El router envía la pieza a la ruta de fallback. Se crea un registro "Datos incompletos" en Registro de errores y no se llama a OpenAI. |
 | La API de OpenAI falla | El módulo de error crea un registro "Fallo en Clasificar prioridad" vinculado a la pieza y termina la ejecución sin modificar la pieza. |
 | Falla el envío de correo o la consulta a Notion | Hoy no hay una ruta de error específica. Es una limitación conocida, detallada en la sección 5. |
 
