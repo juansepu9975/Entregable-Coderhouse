@@ -29,7 +29,7 @@ El punto de aprobación humana (HITL) es el checkbox **Aprobado** en Airtable: s
 
 ## Carpetas del repositorio
 
-- `docs/`: documentación de la entrega (diagrama, manual de datos, matriz de costos, seguridad y resiliencia).
+- `docs/`: documentación de la entrega (manual de datos, matriz de costos, seguridad y resiliencia).
 - `blueprints/`: exportación JSON de los dos escenarios de Make.
 - `datos/`: CSV de las tablas Piezas y Registro de errores.
 - `capturas/`: evidencia de ejecuciones, correos y dashboard.
