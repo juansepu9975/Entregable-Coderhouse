@@ -5,7 +5,7 @@ Sistema de automatización de contenido para una clínica (Pulmahue) que genera 
 ## Enlaces de entrega
 
 - **Dashboard de control (Shared View de Airtable):** https://airtable.com/applMITHCnOQM9YdF/shrE93K90jwIXfP0w/tbl5DvfD5RE0S8ee0
-- **Video demo (3 min):** PENDIENTE
+- **Video demo (3 min):** [PENDIENTE](https://www.loom.com/share/21ecc162fecd45e1b7c7bd9708675b81)
 - **Documentación completa:** [docs/](docs/)
 
 ## Stack tecnológico
