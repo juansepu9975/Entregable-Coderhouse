@@ -1,0 +1,27 @@
+﻿Idea Semilla,Estado,Tono,Borrador generado,Aprobado,Última ejecución,Última modificación,Registro de errores,KPI Salida,KPI Aprobación,KPI Error,Email revisor,Email destinatario
+Cómo preparar tu cirugía: ayuno de 8 horas,En revision,Formal,,,,20/10/2026 10:13am,,0,0,0,,
+Recordatorio: confirmá tu turno con 24 h de anticipación,Publicado,Cálido y claro,,,,20/10/2026 4:16pm,,0,0,0,,
+Recordatorio: confirmá tu turno con 24 h de anticipación,En revision,Formal,"Estimado paciente:
+
+Le recordamos que es importante confirmar su turno con 24 horas de anticipación. Recuerde que debe mantener un ayuno de sólidos y líquidos durante 8 horas antes de la hora programada. La confirmación del ayuno debe realizarse antes de las 20:00 h del día anterior. Si no se confirma, la cirugía será cancelada y reprogramada. 
+
+Agradecemos su atención.
+
+Clínica Pulmahue.",,,3/11/2026 4:50pm,Fallo en Clasificar prioridad,1,0,1,,
+Prueba datos incompletos: sin tono,En revision,,"Para su cirugía, es importante que mantenga ayuno de sólidos y líquidos durante 8 horas antes de la hora programada. Recuerde confirmar el ayuno antes de las 20:00 h del día anterior. Si no lo hace, la cirugía será cancelada y reprogramada. 
+
+Clínica Pulmahue",,,3/11/2026 4:55pm,,1,0,0,,
+Prueba corrida 5: datos completos,Publicado,Formal,"Estimado paciente,
+
+Le recordamos que es fundamental mantener un ayuno de sólidos y líquidos durante 8 horas antes de la hora programada para su cirugía. Además, es necesario que confirme el ayuno antes de las 20:00 h del día anterior. En caso de no realizar la confirmación, la cirugía se cancelará y se procederá a reprogramarla.
+
+Para cualquier duda, estamos a su disposición.
+
+Clínica Pulmahue.",checked,,4/11/2026 12:59pm,,1,1,0,cgestion@pulmahue.cl,cgestion@pulmahue.cl
+Prueba destinatario dinámico,Publicado,Formal,"Estimado paciente,
+
+Le recordamos que debe mantener ayuno de sólidos y líquidos durante 8 horas antes de la hora programada de su cirugía. Es importante que confirme el ayuno antes de las 20:00 h del día anterior. En caso de no hacerlo, lamentablemente, la cirugía deberá ser cancelada y reprogramada.
+
+Agradecemos su comprensión y estamos aquí para cualquier consulta.
+
+Clínica Pulmahue",checked,,4/11/2026 1:15pm,,1,1,0,cgestion@pulmahue.cl,jsepulveda@pulmahue.cl
