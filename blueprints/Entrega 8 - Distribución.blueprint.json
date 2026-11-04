@@ -21,7 +21,8 @@
             "metadata": {
                 "designer": {
                     "x": -327,
-                    "y": -39
+                    "y": -39,
+                    "name": "1. Detectar pieza aprobada"
                 },
                 "setupValidation": {
                     "result": {
@@ -218,7 +219,8 @@
             "metadata": {
                 "designer": {
                     "x": -27,
-                    "y": -39
+                    "y": -39,
+                    "name": "2. Enviar contenido al destinatario"
                 },
                 "setupValidation": {
                     "result": {
@@ -408,7 +410,8 @@
             "metadata": {
                 "designer": {
                     "x": 273,
-                    "y": -39
+                    "y": -39,
+                    "name": "3. Marcar como Publicado"
                 },
                 "setupValidation": {
                     "result": {
