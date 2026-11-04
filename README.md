@@ -22,7 +22,7 @@ Sistema de automatización de contenido para una clínica (Pulmahue) que genera 
 
 El sistema tiene dos escenarios:
 
-1. **Generación:** detecta una pieza en estado *Generando*, valida que tenga Idea Semilla, Tono y destinatario, busca la base de conocimiento, genera el borrador con IA, lo guarda y avisa al revisor. Si faltan datos o la IA falla, registra el error en Airtable sin continuar.
+1. **Generación:** detecta una pieza en estado *Generando*, valida que tenga Idea Semilla y Tono, busca la base de conocimiento, genera el borrador con IA, lo guarda y avisa al revisor. Si faltan datos o la IA falla, registra el error en Airtable sin continuar.
 2. **Distribución:** solo actúa sobre piezas con *Aprobado* marcado y que no estén publicadas. Envía el contenido al destinatario y marca la pieza como *Publicado*.
 
 El punto de aprobación humana (HITL) es el checkbox **Aprobado** en Airtable: sin esa marca, el contenido no sale.
