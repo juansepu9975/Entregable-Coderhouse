@@ -49,7 +49,7 @@ Relación: **Piezas (1) → Registro de errores (N)**. Un registro de error siem
 ## 4. Estados y reglas de negocio
 
 1. Una pieza entra al flujo solo si su Estado es **Generando** (filtro "Solo Generando").
-2. Si falta **Idea Semilla**, **Tono** o **Email revisor**, el flujo registra un error y no llama a la IA.
+2. Si falta **Idea Semilla** o **Tono**, el flujo registra un error y no llama a la IA.
 3. Si la IA falla, el flujo registra un error y termina sin modificar la pieza.
 4. Si el borrador se genera, la pieza pasa a **En revisión** y se envía el aviso al revisor.
 5. La distribución solo envía piezas con **Aprobado** marcado y Estado distinto de **Publicado**.
