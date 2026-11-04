@@ -36,6 +36,7 @@ Este documento describe cómo el sistema protege los datos, cómo responde a fal
 - **Directiva de error:** el cierre de las rutas de error usa Commit. Para una versión productiva, conviene usar Resume o Break en el módulo de OpenAI, para reintentar automáticamente.
 - **Reprocesamiento:** si una pieza queda en Generando después de una prueba, el disparador vuelve a tomarla en corridas siguientes. Durante las pruebas esto generó registros duplicados. La regla operativa es no dejar piezas de prueba en Generando.
 - **Aprobación no bloqueante:** el sistema no espera la aprobación dentro de la misma ejecución. La aprobación se hace en Airtable y la distribución es una segunda ejecución.
+- **Validación incompleta:** el router solo valida Idea Semilla y Tono. Si el Email revisor está vacío, el aviso al revisor fallará. Se propone agregar esa validación.
 
 ## 6. Hallazgos de las pruebas
 
