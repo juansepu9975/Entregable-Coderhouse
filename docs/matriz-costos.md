@@ -19,7 +19,7 @@ Este documento justifica qué modelo de IA se usa para cada tarea del flujo, y c
 - El costo por pieza es muy bajo, lo que permite escalar sin un gasto relevante.
 - Un modelo más grande (por ejemplo, un modelo premium) no aporta una mejora proporcional para un texto de este tamaño.
 
-Claude (Haiku) sería una alternativa equivalente para esta tarea. Se descartó en esta entrega porque el flujo ya está construido con OpenAI y cambiarlo no aporta mejora medible.
+Claude (Haiku) Se evaluó como alternativa, pero no se probó en esta entrega. Se descartó en esta entrega porque el flujo ya está construido con OpenAI y cambiarlo no aporta mejora medible.
 
 ## 3. Estimación de costo por pieza
 
